@@ -292,6 +292,11 @@ class OverdueScreen : BaseScreen<
     overdueProgressBar.visibility = View.GONE
   }
 
+  override fun handleNoOverduePatientsViewVisibility(shouldShowEmptyView: Boolean) {
+    viewForEmptyList.visibleOrGone(isVisible = shouldShowEmptyView)
+    overdueRecyclerView.visibleOrGone(isVisible = !shouldShowEmptyView)
+  }
+
   private fun downloadOverdueListClicks(): Observable<UiEvent> {
     return downloadOverdueListButton
         .clicks()

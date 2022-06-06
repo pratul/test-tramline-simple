@@ -31,6 +31,9 @@ data class OverdueModel(
   val overdueCount: Int
     get() = overdueAppointmentSections!!.overdueCount
 
+  val isOverdueAppointmentSectionsListEmpty: Boolean
+    get() = overdueCount == 0
+
   fun currentFacilityLoaded(facility: Facility): OverdueModel {
     return copy(facility = facility)
   }

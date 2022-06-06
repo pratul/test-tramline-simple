@@ -8,4 +8,5 @@ interface OverdueUi {
   fun showOverdueCount(count: Int)
   fun showProgress()
   fun hideProgress()
+  fun handleNoOverduePatientsViewVisibility(shouldShowEmptyView: Boolean)
 }

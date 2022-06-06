@@ -14,12 +14,13 @@ class OverdueUiRenderer(
   }
 
   private fun loadOverdueSections(model: OverdueModel) {
-    if (model.hasLoadedOverdueAppointments) {
-      ui.showOverdueAppointments(model.overdueAppointmentSections!!)
-      ui.showOverdueCount(model.overdueCount)
-      ui.hideProgress()
-    } else {
-      ui.showProgress()
-    }
+      if (model.hasLoadedOverdueAppointments) {
+        ui.showOverdueAppointments(model.overdueAppointmentSections!!)
+        ui.showOverdueCount(model.overdueCount)
+        ui.hideProgress()
+        ui.handleNoOverduePatientsViewVisibility(model.isOverdueAppointmentSectionsListEmpty)
+      } else {
+        ui.showProgress()
+      }
   }
 }

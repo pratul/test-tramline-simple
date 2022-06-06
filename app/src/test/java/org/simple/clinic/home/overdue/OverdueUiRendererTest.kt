@@ -46,6 +46,38 @@ class OverdueUiRendererTest {
     ))
     verify(ui).showOverdueCount(3)
     verify(ui).hideProgress()
+    verify(ui).handleNoOverduePatientsViewVisibility(false)
+  }
+
+  @Test
+  fun `when overdue appointments are loaded, overdue sections is enabled but overdue section list is empty, then show no overdue appointment view`() {
+    // given
+    val overdueAppointmentsLoadedModel = defaultModel
+        .currentFacilityLoaded(TestData.facility(uuid = UUID.fromString("b5e72d35-73e2-444b-a266-a02b73a6299a")))
+        .overdueAppointmentsLoaded(
+            overdueAppointmentSections = OverdueAppointmentSections(
+                pendingAppointments = emptyList(),
+                agreedToVisitAppointments = emptyList(),
+                remindToCallLaterAppointments = emptyList(),
+                removedFromOverdueAppointments = emptyList(),
+                moreThanAnYearOverdueAppointments = emptyList()
+            )
+        )
+
+    // when
+    uiRenderer.render(overdueAppointmentsLoadedModel)
+
+    // then
+    verify(ui).showOverdueAppointments(OverdueAppointmentSections(
+        pendingAppointments = emptyList(),
+        agreedToVisitAppointments = emptyList(),
+        remindToCallLaterAppointments = emptyList(),
+        removedFromOverdueAppointments = emptyList(),
+        moreThanAnYearOverdueAppointments = emptyList()
+    ))
+    verify(ui).showOverdueCount(0)
+    verify(ui).hideProgress()
+    verify(ui).handleNoOverduePatientsViewVisibility(true)
   }
 
   @Test
