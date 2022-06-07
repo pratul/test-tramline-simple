@@ -12,6 +12,7 @@
 - Implement `OverdueAppointmentListItemNew` adapter
 - Rename `SeeAllPendingAppointmentList` to `PendingListFooter`
 - Handle pending list footer clicks
+- Handle see all/see less button clicks for pending overdue list section
 - [In Progress: 27 Apr 2022] Migrate `BloodPressureHistoryScreenEffectHandler` to use view effect
 - [In Progress: 03 Jun 2022] Implement `OverdueAppointmentListItemNew` adapter
 
