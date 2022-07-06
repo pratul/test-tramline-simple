@@ -1,6 +1,4 @@
-![Build Status](https://github.com/simpledotorg/simple-android/workflows/CI/badge.svg)
-
-# Simple
+# Simple (test for tramline) 
 
 An Android app for recording blood pressure measurements.
 
