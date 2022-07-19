@@ -30,7 +30,7 @@ jobs:
       - name: this is only used by tramline! plz don't touch 
         shell: bash
         run: |
-          cat "${{ github.event.inputs.versionCode }}, ${{ github.event.inputs.versionName }}" > tramline.txt
+          echo "${{ github.event.inputs.versionCode }}, ${{ github.event.inputs.versionName }}" > tramline.txt
 
   tramline2: 
     runs-on: ubuntu-latest 
@@ -38,7 +38,7 @@ jobs:
       - name: this is only used by tramline! plz don't touch 
         shell: bash
         run: |
-          cat "${{ github.event.inputs.versionName }}" > tramline-only-version-name.txt
+          echo "${{ github.event.inputs.versionName }}" > tramline-only-version-name.txt
 
   build:
     # The type of runner that the job will run on
